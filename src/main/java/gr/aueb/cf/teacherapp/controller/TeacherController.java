@@ -45,7 +45,7 @@ public class TeacherController {
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", teachersPage.getTotalPages());
 
-        return "teachers";  // Return Thymeleaf view (teachers.html)
+        return "teachers";
     }
 
 
