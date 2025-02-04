@@ -34,7 +34,7 @@ public class TeacherController {
     @GetMapping("/teachers")
     public String getPaginatedTeachers(
             @RequestParam(defaultValue = "0") int page,  // Default to the first page (0-indexed)
-            @RequestParam(defaultValue = "1") int size,  // Default page size
+            @RequestParam(defaultValue = "5") int size,  // Default page size
             Model model) {
 
         // Get paginated TeacherReadOnlyDTOs
@@ -75,8 +75,14 @@ public class TeacherController {
             return "teacher-form";
         }
 
+        //return "redirect:/teachers";
+
         TeacherReadOnlyDTO teacherReadOnlyDTO = mapper.mapToTeacherReadOnlyDTO(savedTeacher);
-        model.addAttribute("teacher", teacherReadOnlyDTO);
+        model.addAttribute("teacher", savedTeacher);
         return "success";
+
     }
+
+
+
 }
